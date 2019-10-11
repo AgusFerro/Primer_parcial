@@ -39,7 +39,7 @@ int imprimir_clientes(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray
     	            	for(posicion=0;posicion<sizePediArray;posicion++)
     	            	{
     	            		if(clieArray[i].idCliente == pediArray[posicion].idCliente
-    	            			&& pediArray[posicion].isEmpty==1
+    	            			&& pediArray[posicion].isEmpty==0
 								&& pediArray[posicion].estado==0)
     	            		{
     	            			pedidosPend++;
@@ -79,9 +79,9 @@ int imprimir_pendientes(Cliente clieArray[],Pedidos pediArray[], int sizeClieArr
     								"\n Kilos a recolectar: %f"
 									"\n Estado: Pendiente",
 									pediArray[i].idPedido,
-    								clieArray[i].cuitCliente,
- 									clieArray[i].direccion.calle,
-    		               		    clieArray[i].direccion.altura,
+    								clieArray[posicion].cuitCliente,
+ 									clieArray[posicion].direccion.calle,
+    		               		    clieArray[posicion].direccion.altura,
 									pediArray[i].cantKilos);
 
     					}
@@ -120,9 +120,9 @@ int imprimir_procesados(Cliente clieArray[],Pedidos pediArray[], int sizeClieArr
     								"\n Kilos de PP: %d"
 									"\n Estado: Completado",
 									pediArray[i].idPedido,
-    								clieArray[i].cuitCliente,
- 									clieArray[i].direccion.calle,
-    		               		    clieArray[i].direccion.altura,
+    								clieArray[posicion].cuitCliente,
+ 									clieArray[posicion].direccion.calle,
+    		               		    clieArray[posicion].direccion.altura,
 									pediArray[i].kilosHDPE,
 									pediArray[i].kilosLDPE,
 									pediArray[i].kilosPP);

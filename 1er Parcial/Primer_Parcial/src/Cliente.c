@@ -19,6 +19,7 @@ void imprimeMenu()
 	printf("\n6.Imprimir clientes");
 	printf("\n7.Imprimir pedidos pendientes");
 	printf("\n8.Imprimir pedidos procesados");
+	printf("\n9.Salir");
 	printf("\n");
 
 }
