@@ -24,17 +24,6 @@ void imprimeMenu()
 
 }
 
-void imprimeMenuModif()
-{
-	printf("\na.Nombre");
-	printf("\nb.Apellido");
-	printf("\nc.Sueldo");
-	printf("\nd.Sector");
-	printf("\ns.Salir");
-	printf("\n");
-
-}
-
 int cliente_Inicializar(Cliente array[], int size)
 {
     int retorno=-1;
@@ -107,8 +96,8 @@ int cliente_alta(Cliente array[], int size, int* contadorID)
         	array[posicion].isEmpty=0;
         	utn_getCUIT("\nIngrese Cuil: XX-XXXXXXXX-X","\nError",2,array[posicion].cuitCliente);
         	utn_getName("\nIngrese nombre de Cliente: ","\nError",1,TEXT_SIZE,2,array[posicion].nombreCliente);
-            utn_getName("\nIngrese localidad: ","\nError",1,TEXT_SIZE,2,array[posicion].localidadCliente);
-            utn_getName("\nIngrese calle: ","\nError",1,TEXT_SIZE,2,array[posicion].direccion.calle);
+            getString("\nIngrese localidad: ","\nError",1,TEXT_SIZE,2,array[posicion].localidadCliente);
+            getString("\nIngrese calle: ","\nError",1,TEXT_SIZE,2,array[posicion].direccion.calle);
             utn_getInt(&array[posicion].direccion.altura,"\nIngrese altura: ","\nError",1,5000,2);
             (*contadorID)++;
             array[posicion].idCliente = *contadorID;
@@ -210,11 +199,11 @@ int cliente_modificar(Cliente array[], int sizeArray, int contadorID)
                 switch(opcion)
                 {
                     case 'A':
-                    	utn_getName("\nIngrese calle: ","\nError",1,TEXT_SIZE,2,array[posicion].direccion.calle);
+                    	getString("\nIngrese calle: ","\nError",1,TEXT_SIZE,2,array[posicion].direccion.calle);
                     	utn_getInt(&array[posicion].direccion.altura,"\nIngrese altura: ","\nError",1,5000,2);
                         break;
                     case 'B':
-                    	utn_getName("\nIngrese localidad: ","\nError",1,TEXT_SIZE,2,array[posicion].localidadCliente);
+                    	getString("\nIngrese localidad: ","\nError",1,TEXT_SIZE,2,array[posicion].localidadCliente);
                         break;
                     case 'S':
                         break;

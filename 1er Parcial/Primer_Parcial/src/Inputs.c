@@ -5,7 +5,7 @@
 #include "Inputs.h"
 
 /*
-getString
+getString       <<<<< antes &reintentos -- modificado a reintentos como variables(chequear que no crashee)
 utn_getName
 utn_getNumero
 utn_getNumeroConSigno
@@ -20,7 +20,7 @@ utn_getFecha
 */
 
 
-int getString(char* msg, char* msgError, int min, int max, int* reintentos, char* resultado)
+int getString(char* msg, char* msgError, int min, int max, int reintentos, char* resultado)
 {
     int retorno=-1;
     char bufferStr[max+10];
@@ -41,9 +41,9 @@ int getString(char* msg, char* msgError, int min, int max, int* reintentos, char
                 break;
             }
             printf("%s 1",msgError);
-            (*reintentos)--;
+            reintentos--;
         }
-        while((*reintentos)>=0);
+        while(reintentos>=0);
     }
     return retorno;
 }
@@ -57,7 +57,7 @@ int utn_getName(char* msg, char* msgError, int min, int max, int reintentos, cha
     {
         do
         {
-            if(!getString(msg,msgError,min,max,&reintentos,bufferStr)) //==0
+            if(!getString(msg,msgError,min,max,reintentos,bufferStr)) //==0
             {
                 if(isValidName(bufferStr)==0)
                 {
@@ -120,7 +120,7 @@ int utn_getInt(int *pResultado,char *pMensaje,char *pMensajeError,int minimo,int
 
 
 //-------------------------------------------------
-int utn_getSignedInt(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, int* input)
+/*int utn_getSignedInt(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, int* input)
 {
     int retorno=-1;
     char bufferStr[maxSize];
@@ -147,7 +147,7 @@ int utn_getSignedInt(char* msg, char* msgError, int minSize, int maxSize, int mi
         while(reintentos>=0);
     }
     return retorno;
-}
+}*/
 
 
 //*******************************************************
@@ -191,7 +191,7 @@ int utn_getFloat(float *pResultado,char *pMensaje,char *pMensajeError,int minimo
 }
 
 //*************************************************************
-int utn_getTelefono(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, char* input)
+/*int utn_getTelefono(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, char* input)
 {
     int retorno=-1;
     char bufferStr[maxSize];
@@ -218,10 +218,10 @@ int utn_getTelefono(char* msg, char* msgError, int minSize, int maxSize, int min
         while(reintentos>=0);
     }
     return retorno;
-}
+}*/
 
 //***************************************
-int utn_getDNI(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
+/*int utn_getDNI(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
 {
     maxSize=11; //con puntos
     minSize=8;  // sin puntos
@@ -250,7 +250,7 @@ int utn_getDNI(char* msg, char* msgError, int minSize, int maxSize, int reintent
         while(reintentos>=0);
     }
     return retorno;
-}
+}*/
 
 
 
@@ -266,7 +266,7 @@ int utn_getCUIT(char* msg, char* msgError, int reintentos, char* input)
     {
         do
         {
-            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr))
+            if(!getString(msg,msgError,minSize,maxSize,reintentos,bufferStr))
             {
             	if(isValidCUIT(bufferStr)==0)
                 {
@@ -288,7 +288,7 @@ int utn_getCUIT(char* msg, char* msgError, int reintentos, char* input)
 
 
 //*************************************************************
-int utn_getEmail(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
+/*int utn_getEmail(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
 {
     int retorno=-1;
     char bufferStr[maxSize];
@@ -315,11 +315,11 @@ int utn_getEmail(char* msg, char* msgError, int minSize, int maxSize, int reinte
         while(reintentos>=0);
     }
     return retorno;
-}
+}*/
 
 
 //*************************************************************
-int utn_getTexto(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
+/*int utn_getTexto(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
 {
     int retorno=-1;
     char bufferStr[maxSize];
@@ -346,11 +346,11 @@ int utn_getTexto(char* msg, char* msgError, int minSize, int maxSize, int reinte
         while(reintentos>=0);
     }
     return retorno;
-}
+}*/
 
 
 //*************************************************************
-int utn_getAlfanumerico(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
+/*int utn_getAlfanumerico(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
 {
     int retorno=-1;
     char bufferStr[maxSize];
@@ -377,7 +377,7 @@ int utn_getAlfanumerico(char* msg, char* msgError, int minSize, int maxSize, int
         while(reintentos>=0);
     }
     return retorno;
-}
+}*/
 
 
 int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, char* resultado)
@@ -389,7 +389,7 @@ int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, cha
     {
         do
         {
-            if(!getString(msg,msgError,1,3,&reintentos,bufferChar))
+            if(!getString(msg,msgError,1,3,reintentos,bufferChar))
             {
                 if(isValidChar(bufferChar[0])==0)
                 {

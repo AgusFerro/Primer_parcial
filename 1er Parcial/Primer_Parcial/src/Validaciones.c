@@ -40,7 +40,7 @@ int isValidNumber(char* stringRecibido,int limite)
     return retorno;
 }
 
-int isValidSignedNumber(char* stringRecibido)
+/*int isValidSignedNumber(char* stringRecibido)
 {
     int retorno=0;
     int i;
@@ -53,7 +53,7 @@ int isValidSignedNumber(char* stringRecibido)
         }
     }
     return retorno;
-}
+}*/
 
 int isValidFloatNumber(char* stringRecibido, int limite)
 {
@@ -70,7 +70,7 @@ int isValidFloatNumber(char* stringRecibido, int limite)
     return retorno;
 }
 
-int isValidTelephone(char* stringRecibido)
+/*int isValidTelephone(char* stringRecibido)
 {
     int retorno=0;
     int i;
@@ -83,9 +83,9 @@ int isValidTelephone(char* stringRecibido)
         }
     }
     return retorno;
-}
+}*/
 
-int isValidDNI(char* stringRecibido)
+/*int isValidDNI(char* stringRecibido)
 {
     int retorno=0;
     int i;
@@ -98,7 +98,7 @@ int isValidDNI(char* stringRecibido)
         }
     }
     return retorno;
-}
+}*/
 
 int isValidCUIT(char* stringRecibido)
 {
@@ -131,7 +131,7 @@ int isValidCUIT(char* stringRecibido)
     return retorno;
 }
 
-int isValidEmail(char* stringRecibido)
+/*int isValidEmail(char* stringRecibido)
 {
     int retorno=0;
     int i;
@@ -145,9 +145,9 @@ int isValidEmail(char* stringRecibido)
         }
     }
     return retorno;
-}
+}*/
 
-int isValidTexto(char* stringRecibido)
+/*int isValidTexto(char* stringRecibido)
 {
     int retorno=0;
     int i;
@@ -160,9 +160,9 @@ int isValidTexto(char* stringRecibido)
         }
     }
     return retorno;
-}
+}*/
 
-int isValidAlphanumeric(char* stringRecibido)
+/*int isValidAlphanumeric(char* stringRecibido)
 {
     int retorno=0;
     int i;
@@ -175,7 +175,7 @@ int isValidAlphanumeric(char* stringRecibido)
         }
     }
     return retorno;
-}
+}*/
 
 int isValidChar(char charRecibido)
 {
