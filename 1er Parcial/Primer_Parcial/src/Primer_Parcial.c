@@ -152,7 +152,7 @@ int primerParcial(void)
 					break;
 				}
 
-			}while(opcion != 11 && reintentos > 1);
+			}while(opcion != 9 && reintentos > 1);
 			if(reintentos <= 1)
 			{
 				printf("Cantidad de reintentos agotada\n");

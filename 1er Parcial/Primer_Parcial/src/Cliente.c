@@ -129,6 +129,7 @@ int cliente_baja(Cliente clieArray[], int sizeClieArray,int contadorID, int* fla
     char opcion;
     if(clieArray!=NULL && sizeClieArray>0)
     {
+    	cliente_listar(clieArray,sizeClieArray);
     	utn_getInt(&id,"\nID de cliente a dar de baja: ","\nError",1,contadorID,1);
         if(cliente_buscarID(clieArray,sizeClieArray,id,&posicion)==-1)
         {
@@ -241,8 +242,11 @@ int cliente_listar(Cliente array[], int size)
         for(i=0;i<size;i++)
         {
             if(array[i].isEmpty==1)
+            {
                 continue;
-            else
+            }
+            else if(array[i].isEmpty==0 && array[i].idCliente>0)
+            {
             	printf( "\n ID: %d"
             	        "\n Cuil: %s"
             			"\n Nombre: %s"
@@ -255,6 +259,7 @@ int cliente_listar(Cliente array[], int size)
             		    array[i].localidadCliente,
             		    array[i].direccion.calle,
             		    array[i].direccion.altura);
+            }
         }
         retorno=0;
     }

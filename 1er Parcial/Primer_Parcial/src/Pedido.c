@@ -168,7 +168,7 @@ int pedidos_listar(Pedidos array[], int size)
             {
                 continue;
             }
-            else
+            else if(array[i].isEmpty==0 && array[i].idPedido>0)
             {
             	printf("\n ID: %d"
             	       "\n Cantidad de kilos: %d",
