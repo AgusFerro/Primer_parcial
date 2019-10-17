@@ -79,10 +79,10 @@ int pedidos_alta(Pedidos array[], int size, int* contadorID, int contadorCliente
         	{
         	array[posicion].isEmpty=0;
             array[posicion].estado=0;
-            utn_getFloat(&array[posicion].cantKilos,"\n:Ingrese cantidad de kilos: ","\nError",1,10000,2);
+            utn_getInt(&array[posicion].cantKilos,"\n:Ingrese cantidad de kilos: ","\nError",1,10000,2);
             (*contadorID)++;
             array[posicion].idPedido = *contadorID;
-            printf("\n_ID: %d _Cantidad de kilos: %f _Estado: Pendiente",array[posicion].idPedido,array[posicion].cantKilos);
+            printf("\n_ID: %d _Cantidad de kilos: %d _Estado: Pendiente",array[posicion].idPedido,array[posicion].cantKilos);
             retorno=0;
         	}
         	else
@@ -102,6 +102,7 @@ int pedidos_procesar(Pedidos array[], int sizeArray, int contadorID)
     int retorno=-1;
     int posicion;
     int id;
+    int kilosMax;
 
     if(array!=NULL && sizeArray>0)
     {
@@ -114,21 +115,30 @@ int pedidos_procesar(Pedidos array[], int sizeArray, int contadorID)
     	{
     		if(array[posicion].estado==0)
     		 {
-    			utn_getInt(&array[posicion].kilosHDPE,"\nCantidad de kilos de HDPE ","\nError",1,3000,1);
-    			utn_getInt(&array[posicion].kilosLDPE,"\nCantidad de kilos de LDPE ","\nError",1,3000,1);
-    			utn_getInt(&array[posicion].kilosPP,"\nCantidad de kilos de PP ","\nError",1,3000,1);
+    			kilosMax = array[posicion].cantKilos;
+    			printf("Cantidad de kilos: %d",kilosMax);
+    			utn_getInt(&array[posicion].kilosHDPE,"\nCantidad de kilos de HDPE: ","\nError",1,kilosMax,1);
+    			kilosMax = kilosMax - array[posicion].kilosHDPE;
+    			printf("Cantidad de kilos: %d",kilosMax);
+    			utn_getInt(&array[posicion].kilosLDPE,"\nCantidad de kilos de LDPE: ","\nError",1,kilosMax,1);
+    			kilosMax = kilosMax - array[posicion].kilosLDPE;
+    			printf("Cantidad de kilos: %d",kilosMax);
+    			utn_getInt(&array[posicion].kilosPP,"\nCantidad de kilos de PP: ","\nError",1,kilosMax,1);
+    			kilosMax = kilosMax - array[posicion].kilosPP;
     			array[posicion].estado=1;
     		    printf("\n ID: %d"
-    		    		"\n Cantidad de kilos: %f"
+    		    		"\n Cantidad de kilos: %d"
     		    		"\n Cantidad de kilosHDPE: %d"
     		    		"\n Cantidad de kilosLDPE: %d"
     		    		"\n Cantidad de kilosPP: %d"
+    		    		"\n Cantidad de basura deshechada: %d"
     		    		"\n Estado: Completado",
 						array[posicion].idPedido,
 						array[posicion].cantKilos,
 						array[posicion].kilosHDPE,
 						array[posicion].kilosLDPE,
-						array[posicion].kilosPP);
+						array[posicion].kilosPP,
+						kilosMax);
 
     		 }
 
@@ -161,7 +171,7 @@ int pedidos_listar(Pedidos array[], int size)
             else
             {
             	printf("\n ID: %d"
-            	       "\n Cantidad de kilos: %f",
+            	       "\n Cantidad de kilos: %d",
             	        array[i].idPedido,
             	        array[i].cantKilos);
             	if(array[i].estado==0)

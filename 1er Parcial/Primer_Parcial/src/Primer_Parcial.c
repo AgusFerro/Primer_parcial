@@ -19,11 +19,22 @@ int primerParcial(void)
 	{
 		int opcion;
 		int reintentos = 3;
-		int idClie = 0,idPedi = 0, flag1 = 0, flag2 = 0;
-		Cliente listaCliente[CANT_CLIENTE];
-		Pedidos listaPedidos[CANT_PEDIDO];
-		cliente_Inicializar(listaCliente,CANT_CLIENTE);
-		pedidos_Inicializar(listaPedidos,CANT_PEDIDO);
+		int idClie = 2,idPedi = 4, flag1 = 2, flag2 = 4;
+
+		Cliente listaCliente[CANT_CLIENTE] = {
+				{1,"Agus","20-41665324-1","Barracas","Jovellanos",281,0},
+				{2,"Lucas","23-57665324-3","San Cristobal","Sarandi",287,0}
+		};
+		Pedidos listaPedidos[CANT_PEDIDO] = {
+				{1,1,0,500,0,0,0,0},
+				{2,1,0,3000,0,0,0,0},
+				{3,2,0,700,0,0,0,0},
+				{4,2,0,600,0,0,0,0}
+		};
+
+		//cliente_Inicializar(listaCliente,CANT_CLIENTE);
+		//pedidos_Inicializar(listaPedidos,CANT_PEDIDO);
+
 		imprimeMenu();
 		do
 		{
@@ -58,8 +69,7 @@ int primerParcial(void)
 					}
 					else
 					{
-						cliente_baja(listaCliente,listaPedidos,idClie,&flag1);
-						printf("\nBaja correcta");
+						cliente_baja(listaCliente,CANT_CLIENTE,idClie,&flag1);
 						imprimeMenu();
 					}
 					break;

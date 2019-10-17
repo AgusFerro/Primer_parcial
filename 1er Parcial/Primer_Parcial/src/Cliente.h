@@ -14,11 +14,11 @@ typedef struct
 typedef struct
 {
     int idCliente;
-    int isEmpty;
     char nombreCliente[TEXT_SIZE];
-    char localidadCliente[TEXT_SIZE];
     char cuitCliente[14];
+    char localidadCliente[TEXT_SIZE];
     Direccion direccion;
+    int isEmpty;
 
 }Cliente;
 

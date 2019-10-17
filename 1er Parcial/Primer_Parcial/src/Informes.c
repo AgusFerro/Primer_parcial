@@ -22,7 +22,7 @@ int imprimir_clientes(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray
     	          {
     	            continue;
     	          }
-                else
+                else if(clieArray[i].isEmpty==0 && clieArray[i].idCliente > 0)
     	            {
     	            	printf( "\n ID: %d"
     	            	        "\n Cuil: %s"
@@ -70,13 +70,14 @@ int imprimir_pendientes(Cliente clieArray[],Pedidos pediArray[], int sizeClieArr
     				for(posicion=0;posicion<sizeClieArray;posicion++)
     				{
     					if(pediArray[i].idCliente == clieArray[posicion].idCliente
-    							&& clieArray[posicion].isEmpty == 0)
+    							&& clieArray[posicion].isEmpty == 0
+								&& clieArray[posicion].idCliente > 0)
     					{
     						printf( "\n ID: %d"
     						    	"\n Cuit: %s"
     						    	"\n Calle: %s"
     						    	"\n Altura: %d"
-    								"\n Kilos a recolectar: %f"
+    								"\n Kilos a recolectar: %d"
 									"\n Estado: Pendiente",
 									pediArray[i].idPedido,
     								clieArray[posicion].cuitCliente,
@@ -109,7 +110,8 @@ int imprimir_procesados(Cliente clieArray[],Pedidos pediArray[], int sizeClieArr
     				for(posicion=0;posicion<sizeClieArray;posicion++)
     				{
     					if(pediArray[i].idCliente == clieArray[posicion].idCliente
-    							&& clieArray[posicion].isEmpty == 0)
+    							&& clieArray[posicion].isEmpty == 0
+								&& clieArray[posicion].idCliente > 0)
     					{
     						printf( "\n ID: %d"
     						    	"\n Cuit: %s"

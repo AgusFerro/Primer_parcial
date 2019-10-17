@@ -136,6 +136,18 @@ int cliente_baja(Cliente clieArray[], int sizeClieArray,int contadorID, int* fla
         }
         else
         {
+        	printf( "\n ID: %d"
+        	        "\n Cuil: %s"
+            		"\n Nombre: %s"
+            		"\n Localidad: %s"
+              		"\n Calle: %s"
+            		"\n Altura: %d",
+					clieArray[posicion].idCliente,
+					clieArray[posicion].cuitCliente,
+					clieArray[posicion].nombreCliente,
+					clieArray[posicion].localidadCliente,
+					clieArray[posicion].direccion.calle,
+					clieArray[posicion].direccion.altura);
         	utn_getChar("\nEsta seguro que desea dar de baja? S/N","\nError",'A','S',2,&opcion);
         	switch(opcion)
         	{
@@ -148,6 +160,7 @@ int cliente_baja(Cliente clieArray[], int sizeClieArray,int contadorID, int* fla
         		  strcpy(clieArray[posicion].direccion.calle,"");
         		  clieArray[posicion].direccion.altura=0;
         		  (*flag)--;
+        		  printf("\nBaja correcta");
         	      break;
         	  case 'N':
         		  printf("\nBaja cancelada");

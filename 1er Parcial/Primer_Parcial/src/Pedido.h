@@ -10,13 +10,13 @@
 typedef struct
 {
     int idPedido;
-    int isEmpty;
     int idCliente;
-    float cantKilos;
     int estado; //0-pendiente/1-completado
+    int cantKilos;
     int kilosHDPE;
     int kilosLDPE;
     int kilosPP;
+    int isEmpty;
 
 }Pedidos;
 
