@@ -19,17 +19,26 @@ int primerParcial(void)
 	{
 		int opcion;
 		int reintentos = 3;
-		int idClie = 2,idPedi = 4, flag1 = 2, flag2 = 4;
+		int idClie = 6,idPedi = 9, flag1 = 6, flag2 = 9;
 
 		Cliente listaCliente[CANT_CLIENTE] = {
-				{1,"Agus","20-41665324-1","Barracas","Jovellanos",281,0},
-				{2,"Lucas","23-57665324-3","San Cristobal","Sarandi",287,0}
+				{1,"Telefonica","30-11223344-5","CABA","Lima",1234,0},
+				{2,"DATASOFT","30-44556677-6","CABA","Corrientes",2547,0},
+				{3,"NESTLE","30-88995521-9","Lanus","cucha cucha",555,0},
+				{4,"TERRABUSI","30-56781423-5","Quilmes","Rocha",784,0},
+				{5,"DIA","31-54581253-3","CABA","Avellaneda",750,0},
+				{6,"QUILMES","30-51485759-6","Quilmes","Rocha",741,0}
 		};
 		Pedidos listaPedidos[CANT_PEDIDO] = {
-				{1,1,0,500,0,0,0,0},
-				{2,1,0,3000,0,0,0,0},
-				{3,2,0,700,0,0,0,0},
-				{4,2,0,600,0,0,0,0}
+				{1,1,1,1000,200,145,230,0},
+				{2,1,1,800,210,45,30,0},
+				{3,2,0,100,0,0,0,0},
+				{4,2,0,300,0,0,0,0},
+				{5,3,1,1500,500,150,270,0},
+				{6,4,1,750,100,50,70,0},
+				{7,1,0,200,0,0,0,0},
+				{8,5,1,30,10,5,3,0},
+				{9,6,0,456,0,0,0,0}
 		};
 
 		//cliente_Inicializar(listaCliente,CANT_CLIENTE);
@@ -143,6 +152,58 @@ int primerParcial(void)
 					break;
 
 				case 9:
+					informe_cliente_pedientes(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					imprimeMenu();
+					break;
+				case 10:
+					informe_cliente_procesados(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					imprimeMenu();
+					break;
+
+				case 11:
+					informe_cliente_pedidos(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					imprimeMenu();
+					break;
+				case 12:
+					informe_cliente_maxReciclado(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					imprimeMenu();
+					break;
+
+				case 13:
+					informe_cliente_minReciclado(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					imprimeMenu();
+					break;
+
+				case 14:
+					informe_cliente_masDeMil(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					imprimeMenu();
+					break;
+
+				case 15:
+					//arreglar
+					informe_cliente_menosDeCien(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					imprimeMenu();
+					break;
+
+				case 16:
+					informe_procesados_porcentaje(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					imprimeMenu();
+					break;
+
+				case 17:
+					localidad_pendientes(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					imprimeMenu();
+					break;
+				case 18:
+					informe_cliente_menosDeCien(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					imprimeMenu();
+					break;
+				case 19:
+					informe_cliente_menosDeCien(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					imprimeMenu();
+					break;
+
+				case 20:
 					printf("Hasta pronto!");
 					break;
 				default:
@@ -152,7 +213,7 @@ int primerParcial(void)
 					break;
 				}
 
-			}while(opcion != 9 && reintentos > 1);
+			}while(opcion != 20 && reintentos > 1);
 			if(reintentos <= 1)
 			{
 				printf("Cantidad de reintentos agotada\n");

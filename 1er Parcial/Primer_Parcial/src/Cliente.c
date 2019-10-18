@@ -19,7 +19,18 @@ void imprimeMenu()
 	printf("\n6.Imprimir clientes");
 	printf("\n7.Imprimir pedidos pendientes");
 	printf("\n8.Imprimir pedidos procesados");
-	printf("\n9.Salir");
+	printf("\n9.Cliente con mas pedidos pendientes");
+	printf("\n10.Cliente con mas pedidos procesados");
+	printf("\n11.Cliente con mas pedidos");
+	printf("\n12.Cliente que mas reciclo");
+	printf("\n13.Cliente que menos reciclo");
+	printf("\n14.Cantidad de clientes que reciclaron mas de 1000k");
+	printf("\n15.Cantidad de clientes que reciclaron menos de 100k");
+	printf("\n16.Imprimir pedidos completados con porcentaje");
+	printf("\n17.Cantidad de pedidos pendientes por localidad");
+	printf("\n18.Cantidad de kilos de polopropileno reciclado");
+	printf("\n19.Cantidad de tipos de plastico reciclado por cliente");
+	printf("\n20.Salir");
 	printf("\n");
 
 }
