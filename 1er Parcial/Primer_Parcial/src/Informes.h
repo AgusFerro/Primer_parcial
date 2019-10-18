@@ -29,13 +29,8 @@ int informe_procesados_porcentaje(Cliente clieArray[],Pedidos pediArray[], int s
 
 int localidad_pendientes(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray, int sizePediArray);
 
+int informe_cliente_pp_promedio(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray, int sizePediArray);
 
-
-
-
-
-
-
-
+int informe_tipo_plastico(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray, int sizePediArray);
 
 #endif

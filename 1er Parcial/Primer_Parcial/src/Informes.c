@@ -608,7 +608,12 @@ int informe_cliente_pp_promedio(Cliente clieArray[],Pedidos pediArray[], int siz
     	            			&& pediArray[posicion].isEmpty==0
 								&& pediArray[posicion].estado==1)
     	            		{
+    	            			idAnterior = pediArray[posicion].idCliente;
     	            			kilosRecic = kilosRecic + pediArray[posicion].kilosPP;
+    	            		}
+    	            		if(pediArray[posicion].idCliente != idAnterior)
+    	            		{
+
     	            		}
     	            	}
 
@@ -633,6 +638,27 @@ int informe_cliente_pp_promedio(Cliente clieArray[],Pedidos pediArray[], int siz
     			"\nCantidad de kilos: %d",
     			clieArray[posMax].nombreCliente,
 				kilosRecicMax);
+        retorno=0;
+    }
+    return retorno;
+}
+
+int informe_tipo_plastico(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray, int sizePediArray)
+{
+    int retorno=-1;
+    int kilosRecic = 0,kilosRecicMax = 0;
+    int posicion,i,posMax;
+    int flag = 0;
+    char cuit[14];
+
+    if(clieArray!=NULL && sizeClieArray>0)
+    {
+    	getString("\nIngrese cuit: ","\nError",1,TEXT_SIZE,2,cuit);
+    	for(int i=0;i<sizeClieArray;i++)
+    	{
+    	    if(clieArray[i].isEmpty==0 && strcmp(clieArray[i].cuitCliente,cuit)==0)
+    	    {}
+    	}
         retorno=0;
     }
     return retorno;

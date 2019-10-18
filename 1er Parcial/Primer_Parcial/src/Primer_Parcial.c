@@ -195,11 +195,13 @@ int primerParcial(void)
 					imprimeMenu();
 					break;
 				case 18:
-					informe_cliente_menosDeCien(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					//arreglar
+					informe_cliente_pp_promedio(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
 					imprimeMenu();
 					break;
 				case 19:
-					informe_cliente_menosDeCien(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					//arreglar
+					informe_tipo_plastico(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
 					imprimeMenu();
 					break;
 
