@@ -484,16 +484,17 @@ int informe_cliente_menosDeCien(Cliente clieArray[],Pedidos pediArray[], int siz
     	            			&& pediArray[posicion].isEmpty==0
 								&& pediArray[posicion].estado==1)
     	            		{
-    	            			kilosRecic=0;
+    	            			kilosRecic = 0;
     	            			kilosRecic = kilosRecic + pediArray[posicion].kilosHDPE
     	            									+ pediArray[posicion].kilosLDPE
 														+ pediArray[posicion].kilosPP;
     	            		}
     	            	}
 
-    	            	if(kilosRecic<100)
+    	            	if(kilosRecic<100 && pediArray[posicion].idCliente>0)
     	            	{
     	            		cantCliente++;
+    	            		kilosRecic=100;
     	            	}
 
     	            }
@@ -585,7 +586,7 @@ int localidad_pendientes(Cliente clieArray[],Pedidos pediArray[], int sizeClieAr
     return retorno;
 }
 
-int informe_cliente_pp_promedio(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray, int sizePediArray)
+/*int informe_cliente_pp_promedio(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray, int sizePediArray)
 {
     int retorno=-1;
     int kilosRecic = 0,kilosRecicMax = 0;
@@ -663,3 +664,4 @@ int informe_tipo_plastico(Cliente clieArray[],Pedidos pediArray[], int sizeClieA
     }
     return retorno;
 }
+*/
