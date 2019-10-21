@@ -642,26 +642,70 @@ int localidad_pendientes(Cliente clieArray[],Pedidos pediArray[], int sizeClieAr
         retorno=0;
     }
     return retorno;
-}
+}*/
 
 int informe_tipo_plastico(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray, int sizePediArray)
 {
     int retorno=-1;
-    int kilosRecic = 0,kilosRecicMax = 0;
-    int posicion,i,posMax;
-    int flag = 0;
+    int kilosRecic = 0;
+    int posicion,i;
     char cuit[14];
+    char opcion;
 
     if(clieArray!=NULL && sizeClieArray>0)
     {
     	getString("\nIngrese cuit: ","\nError",1,TEXT_SIZE,2,cuit);
-    	for(int i=0;i<sizeClieArray;i++)
+    	for(i=0;i<sizeClieArray;i++)
     	{
     	    if(clieArray[i].isEmpty==0 && strcmp(clieArray[i].cuitCliente,cuit)==0)
-    	    {}
+    	    {
+    	    	utn_getChar("\nIngrese tipo: _HDPE(A) _LDPE(B) _PP(C)","\nError",'A','C',2,&opcion);
+    	    	switch(opcion)
+    	    	{
+    	    	case 'A':
+    	    		for(posicion=0;posicion<sizePediArray;posicion++)
+    	    		{
+       	    			if(clieArray[i].idCliente == pediArray[posicion].idCliente
+        					&& pediArray[posicion].isEmpty == 0
+    						&& pediArray[posicion].estado == 1)
+    	    		    {
+       	    				kilosRecic = kilosRecic + pediArray[posicion].kilosHDPE;
+    	    		    }
+    	    		}
+    	    		printf("\nKilos reciclados de HDPE: %d",kilosRecic);
+    	    		break;
+    	    	case 'B':
+    	    		for(posicion=0;posicion<sizePediArray;posicion++)
+    	       		{
+    	      			if(clieArray[i].idCliente == pediArray[posicion].idCliente
+    	      				&& pediArray[posicion].isEmpty == 0
+    	    		    	&& pediArray[posicion].estado == 1)
+    	    		    {
+    	    		    	kilosRecic = kilosRecic + pediArray[posicion].kilosLDPE;
+    	    		    }
+    	       		}
+    	       		printf("\nKilos reciclados de LDPE: %d",kilosRecic);
+    	    	    break;
+    	    	case 'C':
+    	    		for(posicion=0;posicion<sizePediArray;posicion++)
+    	      		{
+    	       			if(clieArray[i].idCliente == pediArray[posicion].idCliente
+    	   					&& pediArray[posicion].isEmpty == 0
+    	   					&& pediArray[posicion].estado == 1)
+    	       		    {
+    	       				kilosRecic = kilosRecic + pediArray[posicion].kilosPP;
+    	       		    }
+    	       		}
+    	       		printf("\nKilos reciclados de PP: %d",kilosRecic);
+    	    	    break;
+    	    	default:
+    	    		printf("\nOpcion invalida");
+    	    		break;
+    	    	}
+    		}
+        	retorno=0;
     	}
-        retorno=0;
     }
     return retorno;
 }
-*/
+

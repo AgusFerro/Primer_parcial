@@ -200,7 +200,7 @@ int primerParcial(void)
 					break;
 				case 19:
 					//arreglar
-					//informe_tipo_plastico(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					informe_tipo_plastico(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
 					imprimeMenu();
 					break;
 
