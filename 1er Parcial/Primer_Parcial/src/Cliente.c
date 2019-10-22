@@ -92,6 +92,27 @@ int cliente_buscarID(Cliente array[], int size, int valorBuscado, int* posicion)
     return retorno;
 }
 
+int cliente_buscarCUIT(Cliente array[], int size, char* valorBuscado, int* posicion)
+{
+    int retorno=-1;
+    int i;
+    if(array!= NULL && size>=0)
+    {
+        for(i=0;i<size;i++)
+        {
+            if(array[i].isEmpty==1)
+                continue;
+            else if(strcmp(array[i].cuitCliente,valorBuscado)==0)
+            {
+                retorno=0;
+                *posicion=i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+
 int cliente_alta(Cliente array[], int size, int* contadorID)
 {
     int retorno=-1;

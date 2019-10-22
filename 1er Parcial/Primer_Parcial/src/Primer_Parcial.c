@@ -194,12 +194,10 @@ int primerParcial(void)
 					imprimeMenu();
 					break;
 				case 18:
-					//arreglar
-					//informe_cliente_pp_promedio(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
+					informe_cliente_pp_promedio(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
 					imprimeMenu();
 					break;
 				case 19:
-					//arreglar
 					informe_tipo_plastico(listaCliente,listaPedidos,CANT_CLIENTE,CANT_PEDIDO);
 					imprimeMenu();
 					break;

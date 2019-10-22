@@ -586,12 +586,12 @@ int localidad_pendientes(Cliente clieArray[],Pedidos pediArray[], int sizeClieAr
     return retorno;
 }
 
-/*int informe_cliente_pp_promedio(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray, int sizePediArray)
+int informe_cliente_pp_promedio(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray, int sizePediArray)
 {
     int retorno=-1;
-    int kilosRecic = 0,kilosRecicMax = 0;
-    int posicion,i,posMax;
-    int flag = 0;
+    int kilosRecic = 0, cantClientes = 0,promedio = 0;
+    int posicion,i;
+    int idAnterior = 0;
 
     if(clieArray!=NULL && sizeClieArray>0)
     {
@@ -609,52 +609,42 @@ int localidad_pendientes(Cliente clieArray[],Pedidos pediArray[], int sizeClieAr
     	            			&& pediArray[posicion].isEmpty==0
 								&& pediArray[posicion].estado==1)
     	            		{
-    	            			idAnterior = pediArray[posicion].idCliente;
+    	            			if(idAnterior!=pediArray[posicion].idCliente)
+    	            			{
+    	            				idAnterior = pediArray[posicion].idCliente;
+    	            				cantClientes++;
+    	            			}
     	            			kilosRecic = kilosRecic + pediArray[posicion].kilosPP;
     	            		}
-    	            		if(pediArray[posicion].idCliente != idAnterior)
-    	            		{
 
-    	            		}
     	            	}
 
-    	            	if(flag==0)
-    	            	{
-    	            		kilosRecicMax = kilosRecic;
-    	            		posMax = i;
-    	            		flag++;
-    	            	}
-
-    	            	if(kilosRecic>kilosRecicMax)
-    	            	{
-    	            		kilosRecicMax = kilosRecic;
-    	            		posMax = i;
-    	            	}
+    	            	printf("cantClientes: %d",cantClientes);
+    	            	printf("kilosRecic: %d",kilosRecic);
+    	            	promedio = kilosRecic/cantClientes;
 
     	            }
 
     	        }
 
-    	printf("\nCliente que mas reciclo: %s"
-    			"\nCantidad de kilos: %d",
-    			clieArray[posMax].nombreCliente,
-				kilosRecicMax);
+    	printf("\nPromedio de kilos de PP por cliente: %d",
+    			promedio);
         retorno=0;
     }
     return retorno;
-}*/
+}
 
 int informe_tipo_plastico(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray, int sizePediArray)
 {
     int retorno=-1;
     int kilosRecic = 0;
-    int posicion,i;
+    int i,h,l,p;
     char cuit[14];
     char opcion;
 
     if(clieArray!=NULL && sizeClieArray>0)
     {
-    	getString("\nIngrese cuit: ","\nError",1,TEXT_SIZE,2,cuit);
+    	utn_getCUIT("\nIngrese cuit: ","\nError",2,cuit);
     	for(i=0;i<sizeClieArray;i++)
     	{
     	    if(clieArray[i].isEmpty==0 && strcmp(clieArray[i].cuitCliente,cuit)==0)
@@ -663,37 +653,37 @@ int informe_tipo_plastico(Cliente clieArray[],Pedidos pediArray[], int sizeClieA
     	    	switch(opcion)
     	    	{
     	    	case 'A':
-    	    		for(posicion=0;posicion<sizePediArray;posicion++)
+    	    		for(h=0;h<sizePediArray;h++)
     	    		{
-       	    			if(clieArray[i].idCliente == pediArray[posicion].idCliente
-        					&& pediArray[posicion].isEmpty == 0
-    						&& pediArray[posicion].estado == 1)
+       	    			if(clieArray[i].idCliente == pediArray[h].idCliente
+        					&& pediArray[h].isEmpty == 0
+    						&& pediArray[h].estado == 1)
     	    		    {
-       	    				kilosRecic = kilosRecic + pediArray[posicion].kilosHDPE;
+       	    				kilosRecic = kilosRecic + pediArray[h].kilosHDPE;
     	    		    }
     	    		}
     	    		printf("\nKilos reciclados de HDPE: %d",kilosRecic);
     	    		break;
     	    	case 'B':
-    	    		for(posicion=0;posicion<sizePediArray;posicion++)
+    	    		for(l=0;l<sizePediArray;l++)
     	       		{
-    	      			if(clieArray[i].idCliente == pediArray[posicion].idCliente
-    	      				&& pediArray[posicion].isEmpty == 0
-    	    		    	&& pediArray[posicion].estado == 1)
+    	      			if(clieArray[i].idCliente == pediArray[l].idCliente
+    	      				&& pediArray[l].isEmpty == 0
+    	    		    	&& pediArray[l].estado == 1)
     	    		    {
-    	    		    	kilosRecic = kilosRecic + pediArray[posicion].kilosLDPE;
+    	    		    	kilosRecic = kilosRecic + pediArray[l].kilosLDPE;
     	    		    }
     	       		}
     	       		printf("\nKilos reciclados de LDPE: %d",kilosRecic);
     	    	    break;
     	    	case 'C':
-    	    		for(posicion=0;posicion<sizePediArray;posicion++)
+    	    		for(p=0;p<sizePediArray;p++)
     	      		{
-    	       			if(clieArray[i].idCliente == pediArray[posicion].idCliente
-    	   					&& pediArray[posicion].isEmpty == 0
-    	   					&& pediArray[posicion].estado == 1)
+    	       			if(clieArray[i].idCliente == pediArray[p].idCliente
+    	   					&& pediArray[p].isEmpty == 0
+    	   					&& pediArray[p].estado == 1)
     	       		    {
-    	       				kilosRecic = kilosRecic + pediArray[posicion].kilosPP;
+    	       				kilosRecic = kilosRecic + pediArray[p].kilosPP;
     	       		    }
     	       		}
     	       		printf("\nKilos reciclados de PP: %d",kilosRecic);

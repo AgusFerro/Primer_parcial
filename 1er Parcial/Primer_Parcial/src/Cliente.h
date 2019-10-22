@@ -34,6 +34,9 @@ int cliente_buscarEmpty(Cliente array[], int size, int* posicion);
 int cliente_buscarID(Cliente array[], int size, int valorBuscado, int* posicion);
 //busca el ID de un cliente en el array y devuelve la posicion
 
+int cliente_buscarCUIT(Cliente array[], int size, char* valorBuscado, int* posicion);
+//busca el CUIT de un cliente y devuelve la posicion
+
 int cliente_alta(Cliente array[], int size, int* contadorID);
 //da de alta un cliente y se le asigna un ID
 
