@@ -619,8 +619,6 @@ int informe_cliente_pp_promedio(Cliente clieArray[],Pedidos pediArray[], int siz
 
     	            	}
 
-    	            	printf("cantClientes: %d",cantClientes);
-    	            	printf("kilosRecic: %d",kilosRecic);
     	            	promedio = kilosRecic/cantClientes;
 
     	            }
