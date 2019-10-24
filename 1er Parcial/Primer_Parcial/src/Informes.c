@@ -589,7 +589,8 @@ int localidad_pendientes(Cliente clieArray[],Pedidos pediArray[], int sizeClieAr
 int informe_cliente_pp_promedio(Cliente clieArray[],Pedidos pediArray[], int sizeClieArray, int sizePediArray)
 {
     int retorno=-1;
-    int kilosRecic = 0, cantClientes = 0,promedio = 0;
+    int cantClientes = 0;
+    float kilosRecic = 0,promedio = 0;
     int posicion,i;
     int idAnterior = 0;
 
@@ -625,7 +626,7 @@ int informe_cliente_pp_promedio(Cliente clieArray[],Pedidos pediArray[], int siz
 
     	        }
 
-    	printf("\nPromedio de kilos de PP por cliente: %d",
+    	printf("\nPromedio de kilos de PP por cliente: %f",
     			promedio);
         retorno=0;
     }
